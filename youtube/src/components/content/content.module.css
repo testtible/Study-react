@@ -1,0 +1,41 @@
+.content_body {
+  padding: 0.1em;
+  /* width: 50%; */
+}
+
+.content_body.list {
+  width: 100%;
+}
+
+.content_body.twoList {
+  width: 50%;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  transition: transform 250ms ease-in;
+  border: 1px solid lightgray;
+}
+
+.content:hover {
+  transform: scale(1.02);
+}
+
+.thumbnail {
+  cursor: pointer;
+}
+
+.desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 0.4em;
+  font-size: 0.9rem;
+}
+
+.channelTitle {
+  margin-top: 0.4em;
+  font-size: 0.7rem;
+  color: gray;
+}

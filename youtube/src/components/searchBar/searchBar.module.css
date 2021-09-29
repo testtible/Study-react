@@ -1,0 +1,45 @@
+.body {
+  display: flex;
+  align-items: center;
+  height: 10%;
+  width: 70%;
+  background-color: black;
+  position: sticky;
+  
+}
+
+.logo {
+  display: flex;
+  font-size: 28px;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+#youtube_logo {
+  color: red;
+  /* background-color: #fff; */
+}
+.name {
+  color: #fff;
+  font-size: 20px;
+  margin-top: 2px;
+  margin-left: 4px;
+}
+
+.search {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 80%;
+  height: 100%;
+}
+
+.search_text {
+  flex-basis: 100%;
+  margin-left: 8px;
+  height: 50%;
+}
+
+.search_button {
+  height: 50%;
+}
