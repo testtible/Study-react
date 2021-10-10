@@ -1,0 +1,63 @@
+@value makerShadow, makerBlack, makerWhite, makerColorful from '../../common/colors.css';
+.card {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5em;
+  border-radius: 1em;
+  padding: 0.2em 0;
+  background-color: yellow;
+  box-shadow: 6px 6px 8px 0px makerShadow;
+  max-width: 30rem;
+  margin-left: 1em;
+  margin-right: 1em;
+  width: 100%;
+}
+
+.card li {
+  list-style: none;
+  text-align: left;
+}
+
+.avatar {
+  height: 10em;
+  width: 10em;
+  padding: 1em;
+  border-radius: 50%;
+  /* 네모난 사진일 경우 동그랗게 하려면 50%를 주어야함. */
+}
+
+.card_list {
+  display: flex;
+  flex-direction: column;
+  /* width: 100%; */
+}
+
+.name {
+  font-size: 1.2rem;
+  margin-bottom: 0.3em;
+}
+
+.company, .job, .email, .text {
+  font-size: 0.9rem; 
+  margin-bottom: 0.3em;
+}
+
+.company {
+  width: 100%;
+  margin-bottom: 1em;
+  border-bottom: 1px solid lightgrey;
+}
+
+.card.dark {
+  background-color: makerBlack;
+  color: makerWhite;
+}
+
+.card.light {
+  background-color: makerWhite;
+  color: makerBlack;
+}
+
+.card.colorful {
+  background: makerColorful;
+}
