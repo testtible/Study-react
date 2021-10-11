@@ -4,7 +4,7 @@ import Button from '../button/button';
 import ImageFileInput from '../image_file_input/image_file_input';
 
 const AddCard = ({addCardInfo}) => {
-  const [ count, setCount ] = useState(4);
+  const [ count, setCount ] = useState("4");
   const nameRef = useRef();
   const companyRef = useRef();
   const colorRef = useRef();
@@ -12,7 +12,7 @@ const AddCard = ({addCardInfo}) => {
   const emailRef = useRef();
   const textRef = useRef();
 
-  const onAddButton = (e) => {
+  const onButtonClick = (e) => {
     e.preventDefault();
     const card = {
       id: count,
@@ -25,8 +25,10 @@ const AddCard = ({addCardInfo}) => {
       fileName: "",
       fileURL: "",
     }
-    setCount(count + 1);
+    const plusCount = Number(count) + 1;
+    setCount(String(plusCount));
     addCardInfo(card); 
+    console.log(card.id);
   }
 
   return (
@@ -74,7 +76,7 @@ const AddCard = ({addCardInfo}) => {
       <div className={styles.fileInput}>
         <ImageFileInput />
       </div>
-      <Button name="Add" onClick={onAddButton} />
+      <Button name="Add" onButtonClick={onButtonClick} />
     </form>
   );
 }

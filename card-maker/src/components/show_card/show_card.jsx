@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './show_card.module.css';
 
 const ShowCard = ({card}) => {
-  const url = card.fileURL ? card.fileURL : "/images/default_logo.png"; 
+  const url = card.fileURL || "/images/default_logo.png"; 
   return (
     <section className={`${styles.card} ${getColor(card.color)}`}>
       <img className={styles.avatar} src={url} alt="image"/>

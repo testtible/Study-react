@@ -7,49 +7,45 @@ import Editor from '../editor/editor';
 import Preview from '../preview/preview';
 
 const Home = ({authService}) => {
-  const [ cards, setCards ] = useState([{
-    id: "1",
-    name: "Hyuk Jae",
-    company: "company",
-    color: "dark",
-    job: "software engineer",
-    email: "gurwo10@naver.com",
-    text: "fighting",
-    fileName: "",
-    fileURL: "",
-  }, {
-    id: "2",
-    name: "Jong Mi",
-    company: "SKT Company",
-    color: "light",
-    job: "teacher",
-    email: "jongmi@naver.com",
-    text: "strong",
-    fileName: "",
-    fileURL: "",
-  }, {
-    id: "3",
-    name: "Oh Jin",
-    company: "High School",
-    color: "colorful",
-    job: "teacher",
-    email: "koj55555@naver.com",
-    text: "strong man",
-    fileName: "",
-    fileURL: "",
-  }]);
+  const [ cards, setCards ] = useState({
+    "1": {
+      id: "1",
+      name: "Hyuk Jae",
+      company: "company",
+      color: "dark",
+      job: "software engineer",
+      email: "gurwo10@naver.com",
+      text: "fighting",
+      fileName: "",
+      fileURL: "",
+    },
+    "2": {
+      id: "2",
+      name: "Jong Mi",
+      company: "SKT Company",
+      color: "light",
+      job: "teacher",
+      email: "jongmi@naver.com",
+      text: "strong",
+      fileName: "",
+      fileURL: "",
+    },
+    "3": {
+      id: "3",
+      name: "Oh Jin",
+      company: "High School",
+      color: "colorful",
+      job: "teacher",
+      email: "koj55555@naver.com",
+      text: "strong man",
+      fileName: "",
+      fileURL: "",
+    }
+  });
 
   const history = useHistory();
   const onLogout = () => {
     authService.logout();
-  }
-
-  const addCardInfo = (card) => {
-    setCards([
-      ...cards,
-      card
-    ]) // make
-    console.log(cards)
   }
 
   useEffect(() => {
@@ -60,11 +56,25 @@ const Home = ({authService}) => {
     })
   })
 
+  const createOrUpdateCard = (card) => {
+    const update = {...cards};
+    update[card.id] = card;
+    setCards(update);
+  }
+
+  const deleteCard = (id) => {
+    setCards(cards => {
+      const patchObj = {...cards};
+      delete patchObj[id];
+      return patchObj;
+    })
+  }
+
   return (
     <section className={styles.home}>
       <Header onLogout={onLogout}/>
       <div className={styles.container}>
-        <Editor cards={cards} addCardInfo={addCardInfo}/>
+        <Editor cards={cards} addCardInfo={createOrUpdateCard} updateCard={createOrUpdateCard} deleteCard={deleteCard}/>
         <Preview cards={cards}/>
       </div>
       <Footer />
