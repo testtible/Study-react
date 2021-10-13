@@ -11,6 +11,7 @@ const AddCard = ({addCardInfo, FileInput}) => {
   const jobRef = useRef();
   const emailRef = useRef();
   const textRef = useRef();
+  const formRef = useRef();
 
   const onButtonClick = (e) => {
     e.preventDefault();
@@ -28,6 +29,7 @@ const AddCard = ({addCardInfo, FileInput}) => {
     const plusCount = Number(count) + 1;
     setCount(String(plusCount));
     addCardInfo(card);
+    formRef.current.reset()
     setFileInfo({}); 
     console.log(card);
   }
@@ -37,7 +39,7 @@ const AddCard = ({addCardInfo, FileInput}) => {
   }
 
   return (
-    <form className={styles.form}>
+    <form className={styles.form} ref={formRef}>
       <input 
         ref={nameRef}
         className={styles.input}

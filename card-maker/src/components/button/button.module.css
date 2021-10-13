@@ -7,7 +7,8 @@
   cursor: pointer;
   flex: 1 1 50%;
   font-size: 0.8rem;
-  padding: 0.5em;
+  padding: 0.7em;
+  border: 0;
 }
 
 .button:hover {
