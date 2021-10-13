@@ -1,10 +1,10 @@
 import React, { useRef, useState } from 'react';
 import styles from './add_card.module.css';
 import Button from '../button/button';
-import ImageFileInput from '../image_file_input/image_file_input';
 
-const AddCard = ({addCardInfo}) => {
+const AddCard = ({addCardInfo, FileInput}) => {
   const [ count, setCount ] = useState("4");
+  const [ fileInfo, setFileInfo ] = useState({});
   const nameRef = useRef();
   const companyRef = useRef();
   const colorRef = useRef();
@@ -22,13 +22,18 @@ const AddCard = ({addCardInfo}) => {
       job: jobRef.current.value || "",
       email: emailRef.current.value || "",
       text: textRef.current.value || "",
-      fileName: "",
-      fileURL: "",
+      fileName: fileInfo.name || "",
+      fileURL: fileInfo.url || "",
     }
     const plusCount = Number(count) + 1;
     setCount(String(plusCount));
-    addCardInfo(card); 
-    console.log(card.id);
+    addCardInfo(card);
+    setFileInfo({}); 
+    console.log(card);
+  }
+
+  const onFileChange = (file) => {
+    setFileInfo(file);      
   }
 
   return (
@@ -74,7 +79,7 @@ const AddCard = ({addCardInfo}) => {
         placeholder="Textarea"
       />
       <div className={styles.fileInput}>
-        <ImageFileInput />
+        <FileInput onFileChange={onFileChange} name={fileInfo.name}/>
       </div>
       <Button name="Add" onButtonClick={onButtonClick} />
     </form>

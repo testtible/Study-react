@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './editor.module.css';
 import MakeCard from '../make_card/make_card';
 import AddCard from '../add_card/add_card';
-const Editor = ({cards, addCardInfo, updateCard, deleteCard}) => {
+const Editor = ({cards, addCardInfo, updateCard, deleteCard, FileInput}) => {
   
   return (
     <section className={styles.editor}>
@@ -14,10 +14,11 @@ const Editor = ({cards, addCardInfo, updateCard, deleteCard}) => {
             card={cards[key]}
             updateCard={updateCard}
             deleteCard={deleteCard}
+            FileInput={FileInput}
           />
         );
       })}
-      <AddCard addCardInfo={addCardInfo}/>
+      <AddCard addCardInfo={addCardInfo} FileInput={FileInput}/>
     </section>
   );
 };

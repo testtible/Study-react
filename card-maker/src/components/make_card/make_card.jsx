@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import styles from "./make_card.module.css";
 import Button from "../button/button";
-import ImageFileInput from "../image_file_input/image_file_input";
 
-const MakeCard = ({ card, updateCard, deleteCard}) => {
+const MakeCard = ({ card, updateCard, deleteCard, FileInput}) => {
   const {
     id, 
     name, 
@@ -31,6 +30,14 @@ const MakeCard = ({ card, updateCard, deleteCard}) => {
     deleteCard(id);
   }
 
+  const onFileChange = (file) => {
+    updateCard({
+      ...card,
+      fileName: file.name,
+      fileURL: file.url,
+    })
+  }
+
   return (
     <form className={styles.form}>
       <input className={styles.input} type="text" name="name" value={name} onChange={onChange}/>
@@ -56,7 +63,7 @@ const MakeCard = ({ card, updateCard, deleteCard}) => {
         onChange={onChange}
       />
       <div className={styles.fileInput}>
-        <ImageFileInput />
+        <FileInput onFileChange={onFileChange} name={card.fileName}/>
       </div>
       <Button name="Delete" onButtonClick={onButtonClick} id={id}/>
     </form>

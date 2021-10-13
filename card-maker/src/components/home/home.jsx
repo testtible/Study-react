@@ -6,7 +6,7 @@ import Footer from '../footer/footer';
 import Editor from '../editor/editor';
 import Preview from '../preview/preview';
 
-const Home = ({authService}) => {
+const Home = ({authService, FileInput}) => {
   const [ cards, setCards ] = useState({
     "1": {
       id: "1",
@@ -72,14 +72,20 @@ const Home = ({authService}) => {
 
   return (
     <section className={styles.home}>
-      <Header onLogout={onLogout}/>
+      <Header onLogout={onLogout} />
       <div className={styles.container}>
-        <Editor cards={cards} addCardInfo={createOrUpdateCard} updateCard={createOrUpdateCard} deleteCard={deleteCard}/>
-        <Preview cards={cards}/>
+        <Editor
+          cards={cards}
+          addCardInfo={createOrUpdateCard}
+          updateCard={createOrUpdateCard}
+          deleteCard={deleteCard}
+          FileInput={FileInput}
+        />
+        <Preview cards={cards} FileInput={FileInput} />
       </div>
       <Footer />
     </section>
-  )
+  );
 }
 
 export default Home;
