@@ -31,7 +31,6 @@ const AddCard = ({addCardInfo, FileInput}) => {
     addCardInfo(card);
     formRef.current.reset()
     setFileInfo({}); 
-    console.log(card);
   }
 
   const onFileChange = (file) => {

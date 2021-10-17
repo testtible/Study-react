@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './header.module.css';
 
 const Header = ( { onLogout } ) => {
-  console.log(onLogout);
+
   return (
     <header className={styles.header}>
       {onLogout && <button className={styles.logout} onClick={onLogout}>

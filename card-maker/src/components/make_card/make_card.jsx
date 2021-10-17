@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./make_card.module.css";
 import Button from "../button/button";
 
@@ -11,8 +11,6 @@ const MakeCard = ({ card, updateCard, deleteCard, FileInput}) => {
     job, 
     email, 
     text, 
-    fileName, 
-    fileURL 
   } = card;
 
   const onChange = (e) => {

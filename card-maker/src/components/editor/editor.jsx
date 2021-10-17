@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './editor.module.css';
 import MakeCard from '../make_card/make_card';
 import AddCard from '../add_card/add_card';
@@ -10,7 +10,7 @@ const Editor = ({cards, addCardInfo, updateCard, deleteCard, FileInput}) => {
       {Object.keys(cards).map(key => {
         return (
           <MakeCard
-            key={key}
+          key={key}
             card={cards[key]}
             updateCard={updateCard}
             deleteCard={deleteCard}

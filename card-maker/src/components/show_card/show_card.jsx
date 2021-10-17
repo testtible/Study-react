@@ -5,7 +5,7 @@ const ShowCard = ({card}) => {
   const url = card.fileURL || "/images/default_logo.png"; 
   return (
     <section className={`${styles.card} ${getColor(card.color)}`}>
-      <img className={styles.avatar} src={url} alt="image"/>
+      <img className={styles.avatar} src={url} alt="person"/>
       <ul className={styles.card_list}>
         <li className={styles.name}>{card.name}</li>
         <li className={styles.company}>{card.company}</li>
