@@ -1,10 +1,16 @@
 .preview {
   flex-basis: 50%;
   text-align: center;
-  background-color: yellowgreen;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: auto;
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+}
+
+.preview::-webkit-scrollbar {
+  display: none;
 }
 
 .title {

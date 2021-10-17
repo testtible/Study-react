@@ -8,9 +8,17 @@
   display: flex;
   flex-direction: column;
   padding: 0.5em 2em;
+  overflow: auto;
+  height: 100%;
+  -ms-overflow-style: none;
+}
+
+.editor::-webkit-scrollbar {
+  display: none;
 }
 
 .title {
   margin-bottom: 1em;
   width: 100%;
 }
+

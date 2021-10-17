@@ -3,7 +3,7 @@ import styles from './add_card.module.css';
 import Button from '../button/button';
 
 const AddCard = ({addCardInfo, FileInput}) => {
-  const [ count, setCount ] = useState("4");
+  const [ count, setCount ] = useState("1");
   const [ fileInfo, setFileInfo ] = useState({});
   const nameRef = useRef();
   const companyRef = useRef();
