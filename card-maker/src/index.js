@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './app';
@@ -11,9 +11,9 @@ const authService = new AuthService();
 const imageUploader = new ImageUploader();
 const cardRepository = new CardRepository();
 
-const FileInput = (props) => (
+const FileInput = memo((props) => (
   <ImageFileInput {...props} imageUploader={imageUploader}></ImageFileInput>
-)
+));
 // component prop인 경우 대문자로 보통 시작.
 ReactDOM.render(
   <React.StrictMode>

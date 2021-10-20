@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styles from './show_card.module.css';
 
-const ShowCard = ({card}) => {
+const ShowCard = memo(({card}) => {
   const url = card.fileURL || "/images/default_logo.png"; 
   return (
     <section className={`${styles.card} ${getColor(card.color)}`}>
@@ -15,7 +15,7 @@ const ShowCard = ({card}) => {
       </ul>
     </section>
   );
-};
+});
 
 function getColor(color) {
   switch(color) {

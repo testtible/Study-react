@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
 import styles from './home.module.css';
 import Header from '../header/header';
@@ -12,9 +12,9 @@ const Home = ({authService, FileInput, cardRepository}) => {
   const [ cards, setCards ] = useState({});
   const [ userId, setUserId ] = useState(historyState && historyState.id);
 
-  const onLogout = () => {
+  const onLogout = useCallback(() => {
     authService.logout();
-  }
+  }, [authService]);
 
   useEffect(() => {
     if(!userId) {
